@@ -1,0 +1,83 @@
+# .conkyrc
+
+background yes
+use_xft yes
+xftfont Droid:normal:size=10
+xftalpha 1
+update_interval 1.0
+top_cpu_separate true
+total_run_times 0
+own_window yes
+own_window_argb_visual true
+own_window_argb_value 0
+#own_window_colour
+own_window_transparent yes
+own_window_type background
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 250 1300
+maximum_width 260
+max_text_width 0
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+default_color white
+default_shade_color black
+default_outline_color white
+alignment top_right
+gap_x 20
+gap_y 0
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale no
+
+TEXT
+${hr 1}
+$alignc ${font courier:bold:size=10} ${color #42e6ff} S Y S T E M  I N F O
+${color white}${hr 1}
+${font courier:normal:size=10}${color #42e6ff}OS${color white}$alignr$sysname
+${color #42e6ff}Kernel${color white}$alignr$kernel
+${color #42e6ff}Machine${color white}$alignr$machine
+${color #42e6ff}Host${color white}$alignr$nodename
+${color #42e6ff}Uptime${color white}$alignr$uptime
+
+${font courier:normal:size=10}${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //' | grep 'CPU       ' | sed -e 's/CPU       . //' | tail -n 1}${font courier:bold:size=10}$alignc Used $alignr Freq
+${font courier:normal:size=10}${color #42e6ff}CPU 1 $alignc	     ${color white}${cpu cpu1	}% $alignr ${freq_g 1}GHz
+${font courier:normal:size=10}${color #42e6ff}CPU 2 $alignc	     ${color white}${cpu cpu2}% $alignr ${freq_g 2}GHz
+${font courier:normal:size=10}${color #42e6ff}CPU 3 $alignc	     ${color white}${cpu cpu3}% $alignr ${freq_g 3}GHz
+${font courier:normal:size=10}${color #42e6ff}CPU 4 $alignc	     ${color white}${cpu cpu4}% $alignr ${freq_g 4}GHz
+
+${font courier:bold:size=10}$alignc Used $alignr Max
+${font courier:normal:size=10}${color #42e6ff}RAM ${color white}$alignc $mem $alignr $memmax
+${color #42e6ff}SWAP ${color white}$alignc ${swap} $alignr ${swapmax}
+
+${font courier:bold:size=10}$alignc Used $alignr Size
+${font courier:normal:size=10}${color #42e6ff}/ ${color white}$alignc ${fs_used /} $alignr ${fs_size /}
+${color #42e6ff}Data ${color white}$alignc ${fs_used /media/faraz/Data} $alignr ${fs_size /media/faraz/Data}
+
+
+
+
+
+
+
+
+
+
+
+
+
+${hr 1}
+$alignc ${font courier:bold:size=10}${color #42e6ff}S H O R T C U T  K E Y S
+${color white}${hr 1}
+${font courier:normal:size=10}${color #42e6ff}[Alt] + F2 ${color white}$alignr Run Dialog
+${color #42e6ff}[S] ${color white}$alignr Show Windows
+${color #42e6ff}[S] + tab ${color white}$alignr App Switcher
+${color #42e6ff}[S] + e ${color white}$alignr File Manager
+${color #42e6ff}[S] + a ${color white}$alignr Application
+${color #42e6ff}[Ctrl] + [Alt] + t ${color white}$alignr Terminal
+${color #42e6ff}[Ctrl] + [Alt] + m ${color white}$alignr Notif
+${color #42e6ff}[Ctrl] + [Alt] + t ${color white}$alignr Terminal
+${color #42e6ff}[Ctrl] + [Alt] + d ${color white}$alignr Desktop
